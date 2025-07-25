@@ -1,28 +1,28 @@
-name: Bot de Noticias EIR
+name: Ejecutar EIR Bot
 
 on:
+  workflow_dispatch:
   schedule:
-    - cron: '0 * * * *'  # Cada hora en punto
-  workflow_dispatch:     # Permite lanzarlo manualmente desde GitHub
+    - cron: '0 * * * *'  # Cada hora
 
 jobs:
-  ejecutar-script:
+  run-bot:
     runs-on: ubuntu-latest
 
     steps:
-      - name: 📥 Clonar el repositorio
+      - name: Checkout código
         uses: actions/checkout@v3
 
-      - name: 🐍 Configurar Python
+      - name: Configurar Python
         uses: actions/setup-python@v4
         with:
-          python-version: 3.10
+          python-version: '3.11'
 
-      - name: 📦 Instalar dependencias
+      - name: Instalar dependencias
         run: |
           python -m pip install --upgrade pip
           pip install -r requirements.txt
 
-      - name: 🚀 Ejecutar el script
+      - name: Ejecutar script
         run: |
-          python noticias_eir.py
+          python bot.py
