@@ -1,14 +1,10 @@
 import requests
 from bs4 import BeautifulSoup
-import time
 import json
 import os
 
 # 📤 Webhook de Discord
 DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1398261761005846578/RyMCKBwQ56vb3g7xTsOmjIP5lYp77NDU5IPSMeOB9kCGGOCah-ss_5DZMXiFX1Yo962T"
-
-# ⏱️ Tiempo de espera entre ejecuciones (en segundos)
-WAIT_TIME_SECONDS = 3600  # 1 hora
 
 # 🔎 Palabras clave mejoradas
 KEYWORDS = [
@@ -137,14 +133,11 @@ def main():
     global notified_links
     notified_links = cargar_notificados()
 
-    while True:
-        for url in HTML_SOURCES:
-            noticias = scrape_html(url)
-            for noticia in noticias:
-                if noticia["link"] not in notified_links:
-                    enviar_a_discord(noticia["title"], noticia["link"])
-        print(f"⏳ Esperando {WAIT_TIME_SECONDS / 60:.0f} minutos...\n")
-        time.sleep(WAIT_TIME_SECONDS)
+    for url in HTML_SOURCES:
+        noticias = scrape_html(url)
+        for noticia in noticias:
+            if noticia["link"] not in notified_links:
+                enviar_a_discord(noticia["title"], noticia["link"])
 
 
 if __name__ == "__main__":
