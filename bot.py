@@ -4,7 +4,7 @@ import json
 import os
 
 # 📤 Webhook de Discord
-DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1398261761005846578/RyMCKBwQ56vb3g7xTsOmjIP5lYp77NDU5IPSMeOB9kCGGOCah-ss_5DZMXiFX1Yo962T"
+DISCORD_WEBHOOK_URL = "https://discord.com/api/webhooks/1398257155144024114/nQsSoD8v27ibuVTkAnbi0vkN0ZlEW7M3sPhLbWCAC9HykvihCJqBb6XdUKPzE4_7nrXy"
 
 # 🔎 Palabras clave mejoradas
 KEYWORDS = [
@@ -16,7 +16,7 @@ KEYWORDS = [
 # 🌐 Páginas HTML para revisar
 HTML_SOURCES = [
     "https://www.redaccionmedica.com/secciones/eir-y-mas-residentes",
-    "https://www.noticiasensalud.com/",
+    "https://www.noticiasensalud.com/tag/enfermeria/",
     "https://www.sanidad.gob.es/gabinete/notasPrensa.do",
     "https://ifses.es/noticias-ifses/",
     "https://diarioenfermero.es/"
